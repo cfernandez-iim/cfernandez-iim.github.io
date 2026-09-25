@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Track Record | Infrastructure in Motion</title>
+<meta name="description" content="Forty infrastructure mandates across managed lanes, toll roads, airports, mobility planning, fibre, hospitals and solar, in eleven countries. Filter by sector, country and client type.">
+<link rel="canonical" href="https://infrastructureinmotion.com/mandates.html">
+<meta name="theme-color" content="#0d1a33">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Infrastructure in Motion">
+<meta property="og:title" content="Track Record | Infrastructure in Motion">
+<meta property="og:description" content="Forty infrastructure mandates across seven sectors and eleven countries.">
+<meta property="og:url" content="https://infrastructureinmotion.com/mandates.html">
+<meta property="og:image" content="https://infrastructureinmotion.com/assets/iim-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Track Record | Infrastructure in Motion">
+<meta name="twitter:description" content="Forty infrastructure mandates across seven sectors and eleven countries.">
+<meta name="twitter:image" content="https://infrastructureinmotion.com/assets/iim-logo.png">
+
+<link rel="icon" href="assets/iim-logo.png">
+<link rel="preload" href="assets/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#results">Skip to mandates</a>
+
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="index.html" aria-label="Infrastructure in Motion, home">
+      <img src="assets/iim-logo.png" alt="Infrastructure in Motion" width="957" height="375">
+    </a>
+
+    <nav class="nav__links" id="nav-links" aria-label="Sections">
+      <a href="about.html">About us</a>
+      <a href="index.html#practice">Practice</a>
+      <a href="mandates.html" aria-current="page">Track Record</a>
+      <a href="contact.html">Contact us</a>
+    </nav>
+
+    <a class="btn btn--sm nav__cta" href="mailto:advisory@infrastructureinmotion.com">Contact a partner</a>
+
+    <button class="nav__toggle" id="nav-toggle" type="button"
+            aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav__progress" aria-hidden="true"></div>
+</header>
+
+<main class="page">
+
+  <!-- ===== Page head ===== -->
+  <section class="phead">
+    <div class="phead__inner">
+      <p class="eyebrow">Track Record</p>
+      <h1 class="phead__title">Forty mandates, eleven countries.</h1>
+      <p class="phead__sub">Revenue-risk roads, airports, transit, fibre, hospitals and
+        generation, advised for sponsors, lenders and public authorities. Filter the list,
+        or switch it to detail to read every description.</p>
+    </div>
+  </section>
+
+  <!-- ===== Filters. Rendered here in markup so the page works before JS runs. ===== -->
+  <section class="filters" aria-label="Filter mandates">
+    <div class="filters__inner">
+
+      <div class="filters__row">
+        <label class="field">
+          <span class="field__label">Search</span>
+          <input class="field__input" type="search" id="f-search"
+                 placeholder="Project, client or country" autocomplete="off">
+        </label>
+
+        <label class="field field--select">
+          <span class="field__label">Country</span>
+          <select class="field__input" id="f-country">
+            <option value="">All countries</option>
+          </select>
+        </label>
+
+        <div class="field field--chips">
+          <span class="field__label" id="lbl-type">Client</span>
+          <div class="chips" role="group" aria-labelledby="lbl-type" id="f-type">
+            <button class="chip is-on" type="button" data-value="" aria-pressed="true">All</button>
+            <button class="chip" type="button" data-value="Public" aria-pressed="false">Public</button>
+            <button class="chip" type="button" data-value="Private" aria-pressed="false">Private</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="field field--chips">
+        <span class="field__label" id="lbl-sector">Sector</span>
+        <div class="chips" role="group" aria-labelledby="lbl-sector" id="f-sector">
+          <button class="chip is-on" type="button" data-value="" aria-pressed="true">All sectors</button>
+        </div>
+      </div>
+
+      <div class="filters__foot">
+        <!-- Recomputed on every filter change. The figures animate to their
+             new values so the effect of a filter is visible, not just read. -->
+        <div class="summary" id="summary">
+          <p class="summary__item">
+            <span class="summary__n" id="sum-mandates">40</span>
+            <span class="summary__l">mandates</span>
+          </p>
+          <p class="summary__item">
+            <span class="summary__n" id="sum-countries">11</span>
+            <span class="summary__l">countries</span>
+          </p>
+          <p class="summary__item">
+            <span class="summary__n" id="sum-sectors">7</span>
+            <span class="summary__l">sectors</span>
+          </p>
+        </div>
+        <div class="filters__acts">
+          <button class="linkbtn" type="button" id="f-clear" hidden>Clear filters</button>
+          <!-- One control for the whole list, not one per card: it switches
+               every result showing from the card grid to a full-width row with
+               its description alongside. -->
+          <button class="viewbtn" type="button" id="f-detail"
+                  aria-pressed="false" aria-controls="results-grid">
+            <span class="viewbtn__label">Detail</span>
+            <span class="viewbtn__icon" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+
+      <p class="count sr-only" id="count" role="status">40 mandates</p>
+
+      <p class="sector-note" id="sector-note" hidden></p>
+    </div>
+  </section>
+
+  <!-- ===== Results. Cards are rendered by mandates.js. ===== -->
+  <section class="results" id="results">
+    <ul class="results__grid" id="results-grid"></ul>
+
+    <p class="results__empty" id="results-empty" hidden>
+      No mandates match those filters.
+    </p>
+
+    <noscript>
+      <p class="results__empty">This list needs JavaScript to filter. The full set of
+        mandates is available on request at
+        <a href="mailto:advisory@infrastructureinmotion.com">advisory@infrastructureinmotion.com</a>.</p>
+    </noscript>
+  </section>
+
+  <!-- ===== Closing CTA ===== -->
+  <section class="cta">
+    <h2 class="cta__title reveal">Tell us about the asset.</h2>
+    <p class="cta__body reveal" style="--i:1">Send the term sheet, the tender notice, or the
+      one-line question you cannot get a straight answer to. A partner replies, not a form.</p>
+    <div class="cta__actions reveal" style="--i:2">
+      <a class="btn btn--lg" href="mailto:advisory@infrastructureinmotion.com">Contact a partner</a>
+      <a class="cta__email" href="mailto:advisory@infrastructureinmotion.com">advisory@infrastructureinmotion.com</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot__inner">
+    <img class="foot__logo" src="assets/iim-logo.png" alt="Infrastructure in Motion"
+         width="957" height="375" loading="lazy">
+    <nav class="foot__nav" aria-label="Footer">
+      <a href="about.html">About us</a>
+      <a href="index.html#practice">Practice</a>
+      <a href="mandates.html" aria-current="page">Track Record</a>
+      <a href="contact.html">Contact us</a>
+      <a href="mailto:advisory@infrastructureinmotion.com">Contact a partner</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="mandates-data.js"></script>
+<script src="main.js"></script>
+<script src="mandates.js"></script>
+</body>
+</html>

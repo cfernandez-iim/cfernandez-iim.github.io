@@ -1,31 +1,3 @@
-/*
-Theme Name:   Infrastructure in Motion
-Theme URI:    https://infrastructureinmotion.com/
-Author:       Infrastructure in Motion
-Author URI:   https://infrastructureinmotion.com/
-Description:  Custom theme for Infrastructure in Motion: a four-page advisory
-              site with a filterable track record, a data-driven world map and
-              a full dark-mode palette. Ported from the static build with the
-              design unchanged.
-Version:      1.7.1
-Requires at least: 6.0
-Tested up to: 6.7
-Requires PHP: 7.4
-License:      Copyright Infrastructure in Motion. All rights reserved.
-Text Domain:  iim
-*/
-
-/* ---------------------------------------------------------------------------
-   Everything below is the site stylesheet, carried over unchanged.
-
-   NOTE ON PATHS: the url() references below are relative, and they must stay
-   that way. This file sits at the theme root and assets/ sits beside it, so
-   url('assets/fonts/x.woff2') already resolves to
-   /wp-content/themes/iim-theme/assets/fonts/x.woff2 on any install, in any
-   subdirectory. A stylesheet cannot run PHP, so get_template_directory_uri()
-   is not available here and is not needed.
-   --------------------------------------------------------------------------- */
-
 /* =========================================================================
    Infrastructure in Motion - home page, second direction.
    Full-bleed photographic hero, fixed navy bar, counted figures, accordion,
@@ -214,7 +186,7 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
   background: var(--accent);
   color: var(--on-accent);
   font-family: 'Outfit', 'Century Gothic', system-ui, sans-serif;
-  font-size: 0.875rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
 }
@@ -229,7 +201,7 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
 .eyebrow {
   /* Accent as text on navy needs the lifted tone to clear AA. */
   color: var(--green-lift);
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -242,7 +214,7 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
   padding: 15px 26px;
   background: var(--accent);
   color: var(--on-accent);
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.16em;
@@ -251,7 +223,7 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
 }
 .btn:hover { background: var(--paper-warm); color: var(--navy-deep); }
 .btn:active { transform: translateY(1px); }
-.btn--sm { padding: 11px 18px; font-size: 0.8125rem; }
+.btn--sm { padding: 11px 18px; font-size: 0.9375rem; }
 .btn--lg { padding: 18px 34px; }
 
 /* ---------- Fixed bar --------------------------------------------------- */
@@ -287,7 +259,7 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
 }
 .nav__links a {
   color: var(--on-dark);
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.16em;
@@ -347,7 +319,7 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
   max-width: 44ch;
   margin-top: clamp(14px, 2.4dvh, 24px);
   color: var(--on-dark-dim);
-  font-size: clamp(1rem, 1.15vw, 1.1875rem);
+  font-size: clamp(1.125rem, 1.26vw, 1.3125rem);
 }
 
 .hero .btn { margin-top: clamp(20px, 3.4dvh, 34px); }
@@ -362,7 +334,7 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
 
 .stats__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(24px, 3vw, 40px);
   max-width: var(--page);
   margin: 0 auto;
@@ -386,7 +358,7 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
 
 .stat__label {
   color: var(--text);
-  font-size: 0.875rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
 }
@@ -405,6 +377,14 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
 }
 
 .section__head { margin-bottom: clamp(28px, 4vw, 52px); }
+
+/* A standfirst under a section title. It had no rule of its own, so it sat
+   flush against the 2px accent rule under the heading, and ran the full width
+   of the page: a 1300px measure at 17px is roughly twice a readable line. */
+.lede {
+  max-width: 62ch;
+  margin: clamp(14px, 1.6vw, 20px) 0 0;
+}
 
 .acc { border-bottom: 1px solid var(--rule); }
 
@@ -438,7 +418,7 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
   background: transparent;
   border: 1px solid var(--rule);
   color: var(--heading);
-  font-size: 1rem;
+  font-size: 1.0625rem;
   cursor: pointer;
   transition: background-color 0.25s var(--ease), border-color 0.25s var(--ease),
     color 0.25s var(--ease), opacity 0.25s var(--ease);
@@ -468,7 +448,7 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
 }
 
 .proj__title {
-  font-size: clamp(1.25rem, 1.7vw, 1.625rem);
+  font-size: clamp(1.375rem, 1.87vw, 1.8125rem);
   line-height: 1.2;
 }
 
@@ -478,7 +458,7 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
   gap: 4px 18px;
   margin-top: 10px;
   color: var(--text);
-  font-size: 0.875rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.13em;
 }
@@ -487,7 +467,7 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
   max-width: var(--page);
   margin: clamp(20px, 3vw, 34px) auto 0;
   padding: 0 var(--gutter);
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.16em;
@@ -503,7 +483,7 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
 }
 
 .person__name {
-  font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+  font-size: clamp(1.25rem, 1.65vw, 1.5rem);
   line-height: 1.25;
 }
 
@@ -513,13 +493,13 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
   gap: 2px 16px;
   margin: 8px 0 10px;
   color: var(--link);
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.13em;
 }
 
-.person__bio { font-size: 1rem; }
+.person__bio { font-size: 1.0625rem; }
 
 /* ---------- Offices band ------------------------------------------------ */
 
@@ -579,7 +559,7 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
   max-width: 52ch;
   margin-top: clamp(18px, 2.4vw, 26px);
   color: var(--on-dark-dim);
-  font-size: clamp(1rem, 1.15vw, 1.125rem);
+  font-size: clamp(1.125rem, 1.26vw, 1.25rem);
 }
 
 .cta__actions {
@@ -592,8 +572,12 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
 
 .cta__email {
   color: var(--accent);
-  font-size: 0.875rem;
+  font-size: 1.0625rem;
   letter-spacing: 0.04em;
+  /* advisory@infrastructureinmotion.com is one unbreakable token 36 characters
+     long. At 16px it is wider than a 320px phone, so it has to be allowed to
+     break rather than push the page sideways. */
+  overflow-wrap: anywhere;
 }
 .cta__email:hover { color: var(--paper-warm); }
 
@@ -624,7 +608,7 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
 }
 .foot__nav a {
   color: var(--on-dark-dim);
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   text-transform: uppercase;
   letter-spacing: 0.16em;
 }
@@ -632,7 +616,10 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
 
 /* ---------- Responsive -------------------------------------------------- */
 
-@media (max-width: 899px) {
+/* The bar collapses to a toggle here. The number tracks the type: at the
+   sizes below, brand + four links + the CTA stop fitting on one line at
+   around 1030px, which is where the button started hanging off the edge. */
+@media (max-width: 1039px) {
   /* Bar collapses to a toggle; the links become a navy drop panel. */
   .nav__toggle {
     display: flex;
@@ -768,7 +755,7 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
   max-width: 62ch;
   margin-top: 18px;
   color: var(--on-dark-dim);
-  font-size: clamp(1rem, 1.2vw, 1.1875rem);
+  font-size: clamp(1.125rem, 1.32vw, 1.3125rem);
 }
 
 /* ---------- Filter bar -------------------------------------------------- */
@@ -805,7 +792,7 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
 
 .field__label {
   font-family: 'Outfit', 'Century Gothic', system-ui, sans-serif;
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.18em;
@@ -818,7 +805,7 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
   background: var(--bg);
   color: var(--heading);
   font-family: 'Archivo', Helvetica, sans-serif;
-  font-size: 1rem;
+  font-size: 1.0625rem;
   border: 1px solid var(--rule);
   border-radius: 0;
   transition: border-color 0.25s var(--ease);
@@ -844,7 +831,7 @@ select.field__input { cursor: pointer; }
   background: transparent;
   color: var(--heading);
   font-family: 'Outfit', 'Century Gothic', system-ui, sans-serif;
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.13em;
@@ -861,7 +848,7 @@ select.field__input { cursor: pointer; }
 }
 
 .chip__n {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   opacity: 0.7;
 }
 
@@ -874,7 +861,7 @@ select.field__input { cursor: pointer; }
 
 .count {
   font-family: 'Outfit', 'Century Gothic', system-ui, sans-serif;
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.16em;
@@ -900,7 +887,7 @@ select.field__input { cursor: pointer; }
   background: none;
   color: var(--link);
   font-family: 'Outfit', 'Century Gothic', system-ui, sans-serif;
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -948,7 +935,7 @@ select.field__input { cursor: pointer; }
   background: none;
   color: var(--link);
   font-family: 'Outfit', 'Century Gothic', system-ui, sans-serif;
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -960,7 +947,7 @@ select.field__input { cursor: pointer; }
 .sector-note {
   max-width: 80ch;
   color: var(--text);
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   line-height: 1.6;
 }
 
@@ -1022,7 +1009,7 @@ select.field__input { cursor: pointer; }
   color: var(--card-accent);
   transition: color 0.25s var(--ease);
   font-family: 'Outfit', 'Century Gothic', system-ui, sans-serif;
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.16em;
@@ -1031,7 +1018,7 @@ select.field__input { cursor: pointer; }
 .mandate__title {
   font-family: 'Outfit', 'Century Gothic', system-ui, sans-serif;
   font-weight: 550;
-  font-size: clamp(1.1875rem, 1.6vw, 1.5rem);
+  font-size: clamp(1.3125rem, 1.76vw, 1.625rem);
   line-height: 1.2;
   letter-spacing: -0.015em;
 }
@@ -1044,7 +1031,7 @@ select.field__input { cursor: pointer; }
 }
 .mandate__facts dt {
   font-family: 'Outfit', 'Century Gothic', system-ui, sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.16em;
@@ -1053,7 +1040,7 @@ select.field__input { cursor: pointer; }
 }
 .mandate__facts dd {
   margin: 0;
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   color: var(--heading);
 }
 
@@ -1067,7 +1054,7 @@ select.field__input { cursor: pointer; }
 .mandate__panel { padding-top: 14px; }
 .mandate__panel p {
   max-width: 62ch;
-  font-size: 1rem;
+  font-size: 1.0625rem;
   line-height: 1.65;
 }
 
@@ -1075,7 +1062,7 @@ select.field__input { cursor: pointer; }
    detail view has one shape rather than two. */
 .mandate__nodetail {
   font-family: 'Outfit', 'Century Gothic', system-ui, sans-serif;
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--text);
@@ -1084,7 +1071,7 @@ select.field__input { cursor: pointer; }
 .results__empty {
   padding: clamp(36px, 6vw, 64px) 0;
   color: var(--text);
-  font-size: 1rem;
+  font-size: 1.0625rem;
   text-align: center;
 }
 
@@ -1201,7 +1188,7 @@ select.field__input { cursor: pointer; }
 
 .summary__l {
   font-family: 'Outfit', 'Century Gothic', system-ui, sans-serif;
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.18em;
@@ -1317,13 +1304,291 @@ select.field__input { cursor: pointer; }
 .prow:hover { background: var(--tint); }
 
 .prow__title {
-  font-size: clamp(1.25rem, 2vw, 1.625rem);
+  font-size: clamp(1.375rem, 2.2vw, 1.8125rem);
   line-height: 1.2;
   transition: color 0.25s var(--ease);
 }
 .prow:hover .prow__title { color: var(--link); }
 
 .prow__body { max-width: 56ch; }
+
+/* ---------- The About page's opening paragraphs --------------------------- */
+
+.intro__body {
+  max-width: 62ch;
+  margin: 0 0 clamp(16px, 1.8vw, 24px);
+  font-size: clamp(1.1875rem, 1.43vw, 1.375rem);
+  line-height: 1.6;
+}
+.intro__body:last-child { margin-bottom: 0; }
+
+
+/* ---------- A section on the navy ground ---------------------------------
+
+   The About page alternates grounds so no two blocks in a row read the same:
+   navy head, cream firm, navy phases, tinted values, cream principals, navy
+   close. Colours come from the dark tokens, which are identical in both
+   themes, so this band looks the same in light and dark mode.
+   ------------------------------------------------------------------------ */
+
+.section--dark {
+  max-width: none;
+  padding-inline: 0;
+  background: var(--dark);
+  border-top: 1px solid var(--rule-dark);
+  border-bottom: 1px solid var(--rule-dark);
+  color: var(--on-dark-dim);
+}
+
+/* .section caps its own width; on the full-bleed dark band that job moves to
+   an explicit wrapper, so the background can run to the window edge.
+   A `.section--dark > *` rule would have the same specificity as .phases and
+   lose to its `padding: 0`, which is exactly how the columns ended up flush
+   against the window edge the first time. */
+.section--dark .section__inner {
+  max-width: var(--page);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section--dark .section__title { color: var(--on-dark); }
+.section--dark .lede { color: var(--on-dark-dim); }
+
+
+/* ---------- Phases of the asset life -------------------------------------
+
+   Four columns, each opening with a rule, because these are a sequence: 01 is
+   where a mandate starts and 04 is where it ends. The numbering earns its
+   place here in a way it would not on an unordered list.
+   ------------------------------------------------------------------------ */
+
+.phases {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0 clamp(20px, 2.4vw, 40px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.phase { padding-top: clamp(18px, 2vw, 26px); }
+
+/* The rule belongs to the step, not the column, so it stops at the text
+   rather than running the full gap. */
+.phase {
+  border-top: 2px solid var(--green-lift);
+}
+
+.phase__step {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin: 0 0 clamp(12px, 1.4vw, 18px);
+  color: var(--green-lift);
+  font-family: 'Outfit', 'Century Gothic', system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.phase__n { font-variant-numeric: tabular-nums; }
+.phase__title {
+  margin: 0 0 10px;
+  color: var(--on-dark);
+  font-size: clamp(1.3125rem, 1.65vw, 1.5625rem);
+  line-height: 1.25;
+}
+
+.phase__body {
+  margin: 0;
+  max-width: 34ch;
+  font-size: 1.0625rem;
+  color: var(--on-dark-dim);
+}
+
+@media (max-width: 1100px) {
+  .phases { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: clamp(28px, 4vw, 44px); }
+}
+
+@media (max-width: 620px) {
+  .phases { grid-template-columns: 1fr; row-gap: clamp(24px, 5vw, 36px); }
+}
+
+
+/* Two columns of uppercase labels plus a large figure stop fitting once the
+   labels are at body size. COUNTRIES alone is most of a 320px column. */
+@media (max-width: 360px) {
+  .stats__grid { grid-template-columns: 1fr; }
+}
+
+
+/* ---------- The firm's statement -----------------------------------------
+
+   One line, set large, standing on its own in the section. The accent rule
+   above it does the work a quotation mark would otherwise have to, so the
+   marks can stay light rather than becoming decoration.
+   ------------------------------------------------------------------------ */
+
+.statement { margin: 0; }
+
+/* The same short accent rule the section titles carry, rather than a border
+   across the whole section: the quote is narrower than the page, and a rule
+   running past it points at nothing. */
+.statement::before {
+  content: '';
+  display: block;
+  width: clamp(44px, 6vw, 84px);
+  height: 2px;
+  margin-bottom: clamp(22px, 2.6vw, 34px);
+  background: var(--accent);
+}
+
+.statement p {
+  /* em, not ch: the measure has to scale with the clamped size, or the quote
+     is two lines on a laptop and six on a desktop. */
+  max-width: 21em;
+  margin: 0;
+  color: var(--heading);
+  font-family: 'Outfit', 'Century Gothic', system-ui, sans-serif;
+  font-weight: 550;
+  font-size: clamp(1.375rem, 2.6vw, 2.125rem);
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+
+/* ---------- Where the partners came from ---------------------------------
+
+   The firm name is the content here, so it carries the weight and the
+   supporting line stays quiet. Divided by hairlines rather than boxed, so it
+   reads as one strip of provenance rather than a third grid of cards.
+   ------------------------------------------------------------------------ */
+
+.origins {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: clamp(18px, 2vw, 26px) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.origin {
+  padding: 0 clamp(18px, 1.8vw, 28px);
+  border-left: 1px solid var(--rule);
+}
+.origin:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+.origin:last-child { padding-right: 0; }
+
+.origin__name {
+  margin: 0 0 6px;
+  color: var(--heading);
+  font-family: 'Outfit', 'Century Gothic', system-ui, sans-serif;
+  font-weight: 550;
+  font-size: clamp(1.375rem, 1.87vw, 1.625rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.origin__kind {
+  margin: 0 0 12px;
+  color: var(--link);
+  font-family: 'Outfit', 'Century Gothic', system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.origin__body {
+  margin: 0;
+  max-width: 32ch;
+}
+
+/* The second subhead in the section needs air above it; the first sits right
+   under the lede. */
+.work__subtitle--spaced { margin-top: clamp(44px, 6vw, 76px); }
+
+@media (max-width: 1100px) {
+  .origins { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: clamp(26px, 3.5vw, 38px); }
+  .origin:nth-child(odd) { padding-left: 0; border-left: 0; }
+  .origin:nth-child(even) { padding-right: 0; }
+}
+
+@media (max-width: 620px) {
+  .origins { grid-template-columns: 1fr; row-gap: clamp(22px, 5vw, 32px); }
+  .origin {
+    padding-left: 0;
+    padding-right: 0;
+    border-left: 0;
+  }
+}
+
+
+/* ---------- Values, on the About page ------------------------------------
+
+   Four columns divided by hairlines, which is how the firm presents these in
+   its own materials. The rules do the separating, so the cards carry no
+   background of their own and the band colour runs straight through.
+   ------------------------------------------------------------------------ */
+
+.values {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--rule);
+}
+
+.value {
+  padding: clamp(24px, 2.6vw, 36px) clamp(18px, 1.8vw, 28px);
+  border-left: 1px solid var(--rule);
+}
+
+/* The outer edges align with the section gutter rather than sitting inside a
+   rule that has nothing on the other side of it. */
+.value:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+.value:last-child { padding-right: 0; }
+
+.value__title {
+  margin: 0 0 10px;
+  font-size: clamp(1.3125rem, 1.65vw, 1.5625rem);
+  line-height: 1.25;
+}
+
+.value__body {
+  margin: 0;
+  max-width: 34ch;
+  font-size: 1.0625rem;
+}
+
+/* Two up, then one. Below four columns the left-hand card is no longer the
+   only one on its row, so the edge rules have to be recomputed. */
+@media (max-width: 1100px) {
+  .values { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .value { border-top: 1px solid var(--rule); }
+  .value:nth-child(-n + 2) { border-top: 0; }
+  .value:nth-child(odd) { padding-left: 0; border-left: 0; }
+  .value:nth-child(even) { padding-right: 0; }
+}
+
+@media (max-width: 620px) {
+  .values { grid-template-columns: 1fr; }
+
+  .value {
+    padding-left: 0;
+    padding-right: 0;
+    border-left: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .value:first-child { border-top: 0; }
+}
 
 /* ---------- Mandate rail without images --------------------------------- */
 
@@ -1337,7 +1602,7 @@ select.field__input { cursor: pointer; }
 }
 
 .proj__title {
-  font-size: clamp(1.25rem, 1.9vw, 1.625rem);
+  font-size: clamp(1.375rem, 2.09vw, 1.8125rem);
   line-height: 1.18;
 }
 
@@ -1361,7 +1626,7 @@ select.field__input { cursor: pointer; }
 }
 
 .person__name {
-  font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+  font-size: clamp(1.375rem, 1.98vw, 1.625rem);
   line-height: 1.2;
 }
 
@@ -1496,7 +1761,7 @@ select.field__input { cursor: pointer; }
   }
   .hero--type .hero__headline { font-size: min(2rem, 8dvh); }
   .hero--type .hero__headline::after { margin-top: 0.3em; }
-  .hero--type .hero__sub { max-width: 62ch; font-size: 0.9375rem; }
+  .hero--type .hero__sub { max-width: 62ch; font-size: 1.0625rem; }
   .hero--type .hero__actions { margin-top: 18px; }
 }
 
@@ -1580,7 +1845,7 @@ select.field__input { cursor: pointer; }
 
 .map__country {
   font-family: 'Outfit', 'Century Gothic', system-ui, sans-serif;
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.13em;
@@ -1616,7 +1881,7 @@ select.field__input { cursor: pointer; }
 
 .work__subtitle {
   font-family: 'Outfit', 'Century Gothic', system-ui, sans-serif;
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.18em;
@@ -1810,65 +2075,3 @@ select.field__input { cursor: pointer; }
 .map__n,
 .sector__count,
 .sblock__count span { font-weight: 550; }
-
-/* =========================================================================
-   WordPress-only corrections.
-
-   Nothing above this line was changed in the port. These rules exist because
-   WordPress adds chrome the static site never had to cope with.
-   ========================================================================= */
-
-/* The admin bar is 32px of fixed chrome at the top of the window for any
-   logged-in user, and the sticky top bar sits at top:0, so without this the
-   navigation hides underneath it. Visitors never see either rule; it only
-   fires when WordPress puts .admin-bar on <body>. */
-.admin-bar .nav { top: 32px; }
-
-@media screen and (max-width: 782px) {
-  .admin-bar .nav { top: 46px; }
-}
-
-/* Below 600px WordPress stops pinning the admin bar, so it scrolls away and
-   the top bar goes back to the top of the window. */
-@media screen and (max-width: 600px) {
-  .admin-bar .nav { top: 0; }
-}
-
-/* Content injected by the block editor through page.php, so a page created in
-   WordPress inherits the site's measure instead of running edge to edge. */
-.page .results > p,
-.page .results > ul,
-.page .results > ol,
-.page .results > h2,
-.page .results > h3 {
-  max-width: 68ch;
-}
-
-/* =========================================================================
-   Shortcode embeds.
-
-   The blocks exposed through [iim_map], [iim_mandates], [iim_projects] and
-   [iim_stats] are full-bleed sections that bring their own gutter and their
-   own maximum width. Dropped into an Elementor container they would otherwise
-   sit inside a second set of paddings and a second width limit.
-
-   Set the Elementor container to full width with zero padding and these rules
-   do the rest.
-   ========================================================================= */
-
-.iim-embed {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-/* Elementor wraps a shortcode widget in its own div; neither should add a
-   width limit on top of the one the section already has. */
-.iim-embed > section,
-.iim-embed > div {
-  max-width: none;
-}
-
-/* The rail bleeds to the edge on purpose, so it must escape any container that
-   is narrower than the window. */
-.iim-embed--map .map { margin-inline: auto; }

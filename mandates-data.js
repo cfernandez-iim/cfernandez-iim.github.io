@@ -1,4 +1,4 @@
-/* Mandate records, generated from iim-project-credentials.json
+/* Mandate records, generated from C:\Users\Rafa\IIM\Web Site Creation\iim-website\data\iim-project-credentials.json
    (last updated 2026-08-18) by build-mandates-data.py.
    Edit the source JSON and regenerate rather than editing this file. */
 window.IIM_SECTORS = [

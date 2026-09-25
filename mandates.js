@@ -23,24 +23,7 @@
   };
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Never fail silently. An empty grid with no explanation cost two rounds of
-  // "the track record is not working" when the real problem was that
-  // mandates-data.js had not been loaded on that page at all.
-  if (!grid) return;
-
-  if (!DATA.length) {
-    if (empty) {
-      empty.hidden = false;
-      empty.textContent =
-        'The mandate data did not load. If you are an administrator, check that '
-        + 'mandates-data.js is being enqueued on this page.';
-    }
-    if (window.console && console.warn) {
-      console.warn('[IIM] window.IIM_MANDATES is empty or missing: '
-        + 'js/mandates-data.js did not load before js/mandates.js.');
-    }
-    return;
-  }
+  if (!grid || !DATA.length) return;
 
   /* Filter state lives in the URL so a filtered view can be sent to someone.
      Unrecognised values are ignored rather than yielding an empty page. */
