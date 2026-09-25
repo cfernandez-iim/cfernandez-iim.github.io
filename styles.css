@@ -382,8 +382,16 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
    flush against the 2px accent rule under the heading, and ran the full width
    of the page: a 1300px measure at 17px is roughly twice a readable line. */
 .lede {
-  max-width: 62ch;
+  /* A standfirst under a section title, so it sits between the title and the
+     body text rather than at body size. It had no font-size at all, which is
+     why it read as an ordinary paragraph under a 52px heading.
+
+     The measure comes down as the size goes up: 62ch at 26px is an 830px
+     line, which is far too long to track. */
+  max-width: 46ch;
   margin: clamp(14px, 1.6vw, 20px) 0 0;
+  font-size: clamp(1.25rem, 1.8vw, 1.625rem);
+  line-height: 1.38;
 }
 
 .acc { border-bottom: 1px solid var(--rule); }
@@ -499,7 +507,7 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
   letter-spacing: 0.13em;
 }
 
-.person__bio { font-size: 1.0625rem; }
+.person__bio { font-size: clamp(1.125rem, 1.35vw, 1.25rem); }
 
 /* ---------- Offices band ------------------------------------------------ */
 
@@ -1365,7 +1373,7 @@ select.field__input { cursor: pointer; }
 .phases {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0 clamp(20px, 2.4vw, 40px);
+  gap: 0 clamp(18px, 1.9vw, 32px);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -1403,11 +1411,11 @@ select.field__input { cursor: pointer; }
 .phase__body {
   margin: 0;
   max-width: 34ch;
-  font-size: 1.0625rem;
+  font-size: clamp(1.125rem, 1.35vw, 1.25rem);
   color: var(--on-dark-dim);
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1239px) {
   .phases { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: clamp(28px, 4vw, 44px); }
 }
 
@@ -1475,7 +1483,7 @@ select.field__input { cursor: pointer; }
 }
 
 .origin {
-  padding: 0 clamp(18px, 1.8vw, 28px);
+  padding: 0 clamp(14px, 1.4vw, 22px);
   border-left: 1px solid var(--rule);
 }
 .origin:first-child {
@@ -1507,13 +1515,14 @@ select.field__input { cursor: pointer; }
 .origin__body {
   margin: 0;
   max-width: 32ch;
+  font-size: clamp(1.125rem, 1.35vw, 1.25rem);
 }
 
 /* The second subhead in the section needs air above it; the first sits right
    under the lede. */
 .work__subtitle--spaced { margin-top: clamp(44px, 6vw, 76px); }
 
-@media (max-width: 1100px) {
+@media (max-width: 1239px) {
   .origins { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: clamp(26px, 3.5vw, 38px); }
   .origin:nth-child(odd) { padding-left: 0; border-left: 0; }
   .origin:nth-child(even) { padding-right: 0; }
@@ -1543,7 +1552,7 @@ select.field__input { cursor: pointer; }
 }
 
 .value {
-  padding: clamp(24px, 2.6vw, 36px) clamp(18px, 1.8vw, 28px);
+  padding: clamp(24px, 2.6vw, 36px) clamp(14px, 1.4vw, 22px);
   border-left: 1px solid var(--rule);
 }
 
@@ -1564,12 +1573,12 @@ select.field__input { cursor: pointer; }
 .value__body {
   margin: 0;
   max-width: 34ch;
-  font-size: 1.0625rem;
+  font-size: clamp(1.125rem, 1.35vw, 1.25rem);
 }
 
 /* Two up, then one. Below four columns the left-hand card is no longer the
    only one on its row, so the edge rules have to be recomputed. */
-@media (max-width: 1100px) {
+@media (max-width: 1239px) {
   .values { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
   .value { border-top: 1px solid var(--rule); }
