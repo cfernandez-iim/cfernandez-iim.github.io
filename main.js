@@ -81,6 +81,30 @@
     }
   }
 
+  /* ---- Team bios: first paragraph, then a toggle --------------------- */
+  [].forEach.call(document.querySelectorAll('.person__toggle'), function (btn) {
+    var more = document.getElementById(btn.getAttribute('aria-controls'));
+    var person = btn.closest('.person');
+    if (!more) return;
+
+    var setBio = function (open) {
+      more.hidden = !open;
+      btn.setAttribute('aria-expanded', String(open));
+      btn.textContent = open ? 'Show less' : 'Read full profile';
+    };
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') !== 'true';
+      setBio(open);
+      // Closing a long bio from its foot would leave the reader stranded in
+      // the next section, so bring the person back into view.
+      if (!open && person.getBoundingClientRect().top < 0) {
+        person.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      }
+    });
+    setBio(false);
+    btn.hidden = false;
+  });
+
   /* ---- Bar goes solid once the hero has passed ------------------------ */
 
   /* ---- Counted figures ------------------------------------------------ */
