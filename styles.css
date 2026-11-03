@@ -617,6 +617,7 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
   margin: 0 auto;
 }
 
+.foot__brand { display: block; }
 .foot__logo { width: 132px; }
 
 .foot__nav {
