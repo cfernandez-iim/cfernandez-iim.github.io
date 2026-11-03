@@ -482,6 +482,16 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
 }
 .more a { padding-bottom: 4px; border-bottom: 1px solid var(--accent); }
 
+.social {
+  margin-top: clamp(22px, 2.6vw, 30px);
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+.social a { color: var(--link); padding-bottom: 4px; border-bottom: 1px solid var(--accent); }
+.social a:hover { color: var(--accent); }
+
 /* ---------- Principals -------------------------------------------------- */
 
 .people {
@@ -1639,7 +1649,64 @@ select.field__input { cursor: pointer; }
   line-height: 1.2;
 }
 
-.person__bio { max-width: 46ch; }
+.person__bio { max-width: 68ch; }
+.person__bio + .person__bio { margin-top: 0.9em; }
+
+/* ---------- Principals, with portraits ---------------------------------- */
+
+/* The bios run to several paragraphs, so one person per row: portrait
+   beside the text from tablet width up, above it on phones. */
+.people { grid-template-columns: 1fr; }
+
+.person {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.person__photo {
+  display: block;
+  width: clamp(140px, 22vw, 200px);
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  background: var(--tint);
+}
+
+/* First paragraph always shows; the rest opens on request. */
+.person__more {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.4em;
+}
+.person__more .person__bio { margin-top: 0; margin-bottom: 0.9em; }
+
+/* Once open, the toggle moves below the text it revealed. */
+.person__more summary {
+  order: 1;
+  width: max-content;
+  cursor: pointer;
+  list-style: none;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--accent);
+  color: var(--link);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+.person__more summary::-webkit-details-marker { display: none; }
+.person__more summary::after { content: " +"; }
+.person__more[open] summary::after { content: " \2212"; }
+.person__more .person__close,
+.person__more[open] .person__open { display: none; }
+.person__more[open] .person__close { display: inline; }
+
+@media (min-width: 700px) {
+  .person { grid-template-columns: 200px minmax(0, 1fr); gap: 36px; }
+  .person__photo { width: 100%; }
+}
 
 /* ---------- Mandate rail cards, typographic ----------------------------- */
 
