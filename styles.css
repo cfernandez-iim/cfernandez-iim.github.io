@@ -1696,7 +1696,7 @@ select.field__input { cursor: pointer; }
 }
 .person__toggle:hover { color: var(--accent); }
 .person__toggle::after { content: " +"; }
-.person__toggle[aria-expanded="true"]::after { content: " 2"; }
+.person__toggle[aria-expanded="true"]::after { content: " \2212"; }
 
 @media (min-width: 700px) {
   .person { grid-template-columns: 128px minmax(0, 1fr); gap: 32px; }
