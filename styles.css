@@ -1487,7 +1487,7 @@ select.field__input { cursor: pointer; }
 
 .origins {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   margin: clamp(18px, 2vw, 26px) 0 0;
   padding: 0;
   list-style: none;
@@ -1532,12 +1532,6 @@ select.field__input { cursor: pointer; }
 /* The second subhead in the section needs air above it; the first sits right
    under the lede. */
 .work__subtitle--spaced { margin-top: clamp(44px, 6vw, 76px); }
-
-@media (max-width: 1239px) {
-  .origins { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: clamp(26px, 3.5vw, 38px); }
-  .origin:nth-child(odd) { padding-left: 0; border-left: 0; }
-  .origin:nth-child(even) { padding-right: 0; }
-}
 
 @media (max-width: 620px) {
   .origins { grid-template-columns: 1fr; row-gap: clamp(22px, 5vw, 32px); }
@@ -1975,7 +1969,9 @@ select.field__input { cursor: pointer; }
 
    Files live in assets/photos/ as webp, resized and re-encoded by
    build-photos.py from raw-images/. Do not commit the originals: the five in
-   use came to 6.9 MB and ship at 283 KB.
+   use came to 6.9 MB and ship at 283 KB. Project images are in
+   assets/photos/projects/, named after the mandate they show; the source
+   jpg/png files beside them are kept out of git by .gitignore.
    ========================================================================= */
 
 .with-photos .hero--type {
@@ -2070,9 +2066,10 @@ select.field__input { cursor: pointer; }
   background-repeat: no-repeat;
 }
 
-.with-photos .proj[data-photo="sr400"]   .proj__media { background-image: url('assets/photos/proj-managed-lanes.webp'); }
-.with-photos .proj[data-photo="bts"]     .proj__media { background-image: url('assets/photos/proj-toll-road.webp'); }
-.with-photos .proj[data-photo="zambia"]  .proj__media { background-image: url('assets/photos/proj-solar.webp'); }
+.with-photos .proj[data-photo="sr400"]   .proj__media { background-image: url('assets/photos/projects/sr400.webp'); }
+.with-photos .proj[data-photo="bts"]     .proj__media { background-image: url('assets/photos/projects/proj-toll-road.webp'); }
+.with-photos .proj[data-photo="minera"]  .proj__media { background-image: url('assets/photos/projects/ruta-minera.webp'); }
+.with-photos .proj[data-photo="zambia"]  .proj__media { background-image: url('assets/photos/projects/proj-solar.webp'); }
 
 @media (prefers-reduced-motion: no-preference) {
   .with-photos .proj__media { transition: opacity 0.4s var(--ease); }
